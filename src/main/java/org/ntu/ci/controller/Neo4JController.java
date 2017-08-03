@@ -16,12 +16,12 @@ public class Neo4JController {
 
     private Gson gson = new Gson();
 
-    @RequestMapping("/")
+    @RequestMapping("/loadData")
     public String getNeo4JResults() {
         try{
             StringBuilder sb = new StringBuilder();
             final StatementResult result =
-                    N4Connection.getInstance().runResultQuery("MATCH p=()-[r:association]->() RETURN p LIMIT 25");
+                    N4Connection.getInstance().runResultQuery("MATCH p=()-[r:subClassOf]->() RETURN p LIMIT 25");
             while ( result.hasNext() ) {
                 Record record = result.next();
                 sb.append(gson.toJson(record.asMap()));
