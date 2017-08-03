@@ -16,7 +16,7 @@ public class Neo4JController {
 
     private Gson gson = new Gson();
 
-    @RequestMapping("/")
+    @RequestMapping("/loadData")
     public String getNeo4JResults() {
         try{
             StringBuilder sb = new StringBuilder();
